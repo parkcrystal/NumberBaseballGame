@@ -35,9 +35,9 @@ class ChatAdapter(
         val row = tempRow!!
 
         val computerLayout = row.findViewById<LinearLayout>(R.id.computerLayout)
-        val computerTxt = row.findViewById<TextView>(R.id.computerLayout)
+        val computerTxt = row.findViewById<TextView>(R.id.computerTxt)
         val myLayout = row.findViewById<LinearLayout>(R.id.myLayout)
-        val myTxt = row.findViewById<TextView>(R.id.myLayout)
+        val myTxt = row.findViewById<TextView>(R.id.myTxt)
 
         val data = mList[position]
 
