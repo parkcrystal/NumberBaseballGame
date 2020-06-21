@@ -12,6 +12,7 @@ import kr.co.tjoeun.numberbaseballgame_20200621.adapters.ChatAdapter
 class MainActivity : BaseActivity() {
 
 
+//    세자리 숫자담는 배열
     val cpuNumList = ArrayList<Int>()
 
     val chatList = ArrayList<Chat>()
@@ -26,9 +27,10 @@ class MainActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        /* 입력 버튼 이벤트  */
         inputBtn.setOnClickListener {
 
-
+//          숫자 받기
             val inputNum = numberEdt.text.toString()
 
 
@@ -36,6 +38,7 @@ class MainActivity : BaseActivity() {
 
                 Toast.makeText(mContext, "세자리 숫자만 입력 가능합니다.", Toast.LENGTH_SHORT).show()
 
+//                강제종료
                 return@setOnClickListener
 
             }
