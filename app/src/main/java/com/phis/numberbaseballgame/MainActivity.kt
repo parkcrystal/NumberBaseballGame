@@ -48,7 +48,7 @@ class MainActivity : BaseActivity() {
 
 //            한번 숫자 입력시 입력칸 비워주기
             numberEdt.setText("")
-            
+
 //            입력한 값을 가지고 => ?S ?B인지 판단해서 답장하기
             checkUserInputStrikeAndBall(inputNum)
 
@@ -67,6 +67,36 @@ class MainActivity : BaseActivity() {
         numArr.add(number / 100)        //100의자리 2 : 256 / 100 = 2
         numArr.add(number / 10 % 10)    //10의자리  5 : 256 10 % 10 = 5
         numArr.add(number % 100)        //1의자리   6 : 256 % 10 = 6
+
+//        찾은 S / B 갯수를 저장할 변수
+        var strikeCount = 0
+        var ballCount = 0
+
+//        내 입력값을 돌아주는 반복 : i가 내 숫자들 담당
+        for (i in numArr.indices) {
+
+//            문제 숫자를 돌아주는 반복: j가 컴퓨터 숫자들 담당
+            for (j in cpuNumList.indices) {
+
+                if (numArr[i] == cpuNumList[j]) {
+//                    위치도 같은가?
+                    if (i == j) {
+//                        같다면 s 하나 더 찾았다
+                        strikeCount++
+                        
+                    }
+                    else {
+//                        (숫자는 같지만) 위치가 다르면, B 하나 더 찾았다
+                        ballCount++
+                    }
+                }
+            }
+        }
+
+//        ?S ?B 판단이 모두 끝남.
+//        결과를 CPU가 답장.
+        chatList.add(Chat("CPU", "${strikeCount}S ${ballCount}B 입니다."))
+        mChatAdapter.notifyDataSetChanged()
 
     }
 
